@@ -1,0 +1,254 @@
+/* ---------------------------
+   VARIABLES
+---------------------------- */
+:root {
+    --warm-black: #0e0d0c;
+    --text-light: #f5f5f5;
+    --text-muted: #c9c9c9;
+    --gold-grad: linear-gradient(135deg, #e6c87e 0%, #d2a84b 35%, #f7e7b5 70%, #c59a38 100%);
+    --serif: "Playfair Display", serif;
+    --sans: "Poppins", sans-serif;
+}
+
+/* ---------------------------
+   GLOBAL
+---------------------------- */
+body {
+    margin: 0;
+    padding: 0;
+    background: var(--warm-black);
+    color: var(--text-light);
+    font-family: var(--sans);
+}
+a { text-decoration: none; color: inherit; }
+
+/* ---------------------------
+  HERO
+---------------------------- */
+.hero {
+    position: relative;
+    height: 90vh;
+    width: 100%;
+    padding: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; 
+    gap: 150px; 
+    flex-wrap: wrap; 
+    overflow: hidden;
+}
+
+/* Hero Content */
+.hero-content {
+    margin-left: 140px;
+    max-width: 550px;
+    z-index: 10;
+    flex: 1 1 500px; 
+}
+
+/* Hero Image */
+.hero-image {
+    max-width: 450px;
+    z-index: 10;
+    border-radius: 25px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(255, 215, 0, 0.3);
+    transition: transform 0.3s ease;
+    flex: 1 1 450px;
+}
+
+.hero-image img {
+    width: 100%;
+    display: block;
+    border-radius: 25px;
+    transition: transform 0.3s ease;
+}
+
+.hero-image:hover img {
+    transform: scale(1.05);
+}
+
+/* الدوائر الذهبية */
+.circle-main {
+    position: absolute;
+    width: 650px; height: 650px;
+    border-radius: 50%;
+    background: var(--gold-grad);
+    opacity: 0.15;
+    top: -100px;
+    right: -200px;
+    filter: blur(25px);
+}
+.circle-1, .circle-2 {
+    position: absolute;
+    border-radius: 50%;
+    background: var(--gold-grad);
+    opacity: 0.08;
+    filter: blur(18px);
+}
+.circle-1 { width: 200px; height: 200px; bottom: 120px; right: 180px; }
+.circle-2 { width: 120px; height: 120px; top: 130px; right: 380px; }
+
+/* النصوص */
+.name {
+    font-family: var(--serif);
+    font-size: 60px; font-weight: 700;
+    background: var(--gold-grad);
+    -webkit-background-clip: text; color: transparent;
+    margin: 0;
+}
+.job {
+    margin: -10px 0 20px; font-size: 28px;
+    color: var(--text-muted); font-weight: 300; letter-spacing: 1px;
+}
+.desc {
+    font-size: 17px; line-height: 1.7; margin-bottom: 30px;
+    color: var(--text-light); max-width: 550px;
+}
+.cta-btn {
+    padding: 14px 32px; font-size: 16px;
+    background: var(--gold-grad); color: #000; font-weight: 600;
+    border-radius: 40px; border: none; cursor: pointer; transition: .3s ease;
+}
+.cta-btn:hover { opacity: .85; transform: translateY(-3px); }
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .hero-image { max-width: 400px; }
+}
+
+@media (max-width: 992px) {
+    .hero-image { max-width: 350px; }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        height: auto;
+        padding: 20px;
+        gap: 20px; 
+    }
+    .hero-content, .hero-image {
+        max-width: 90%;
+        flex: 1 1 100%;
+        margin: 0;
+        margin-bottom: 20px;
+    }
+}
+
+
+/* ---------------------------
+   SECTIONS
+---------------------------- */
+.section {
+    position: relative;
+    width: 90%; max-width: 1000px;
+    margin: 80px auto;
+    padding: 40px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.03);
+    box-shadow: 0 0 40px rgba(198, 168, 100, 0.2);
+}
+.section h2 {
+    font-family: var(--serif);
+    font-size: 36px;
+    background: var(--gold-grad);
+    -webkit-background-clip: text;
+    color: transparent;
+    margin-bottom: 20px;
+}
+.section p, .section li {
+    color: var(--text-light);
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* ---------------------------
+   GRID LAYOUTS
+---------------------------- */
+.skills-grid, .projects-grid {
+    display: grid;
+    gap: 20px;
+}
+.skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+.projects-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.projects-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px; /* المسافة بين المشاريع */
+  justify-content: center;
+}
+
+.project-card {
+  flex: 1 1 300px;
+  max-width: 350px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 10px 40px rgba(198, 168, 100, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.project-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 20px 60px rgba(198, 168, 100, 0.4);
+}
+
+.project-title {
+  font-family: var(--serif);
+  font-size: 24px;
+  background: var(--gold-grad);
+  -webkit-background-clip: text;
+  color: transparent;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+/* Gallery داخل كل مشروع */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 10px;
+}
+
+.gallery img {
+  width: 100%;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.gallery img:hover {
+  transform: scale(2);
+}
+
+
+
+
+
+/* ---------------------------
+   CONTACT
+---------------------------- */
+.contact-links { display: flex; flex-direction: column; gap: 15px; align-items: center; }
+.contact-links a {
+    display: flex; align-items: center; gap: 10px;
+    padding: 12px 20px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.3);
+    transition: all 0.3s ease;
+}
+.contact-links a:hover { background: rgba(255, 255, 255, 0.1); }
+
+/* ---------------------------
+   RESPONSIVE
+---------------------------- */
+@media(max-width: 900px){
+    .hero-content { max-width: 100%; text-align: center; margin: auto; }
+    .name { font-size: 48px; }
+    .job { font-size: 24px; }
+    .cta-btn { padding: 12px 28px; font-size: 14px; }
+}
